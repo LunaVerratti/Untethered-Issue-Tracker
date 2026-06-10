@@ -1,0 +1,58 @@
+name: Bug Report
+description: File bug report to help improve Untethered.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this report!
+
+  - type: input
+    id: game_version
+    attributes:
+      label: Game Version
+      description: What version of the game are you running?
+      placeholder: e.g., Alpha v2.4.1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: operating_system
+    attributes:
+      label: Operating System
+      description: Select the OS you are using.
+      options:
+        - Windows
+        - Linux
+        - macOS
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Tell us how to reproduce the behavior.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Tell us what you expected the behaviour to be. Attach any screenshots, log files, and save files.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checkboxes
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have checked the open issues for duplicates.
+          required: true
