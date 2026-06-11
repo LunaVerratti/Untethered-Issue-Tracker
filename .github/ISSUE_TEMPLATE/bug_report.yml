@@ -1,6 +1,6 @@
 name: Bug Report
 description: File bug report to help improve Untethered.
-title: "[Bug]: "
+title: ""
 labels: ["bug", "triage"]
 body:
   - type: markdown
