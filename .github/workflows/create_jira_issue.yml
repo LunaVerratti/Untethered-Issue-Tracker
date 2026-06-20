@@ -7,7 +7,7 @@ permissions:
   statuses: read
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout to action
         uses: actions/checkout@v2.4.0
