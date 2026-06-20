@@ -9,11 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout to action
-        uses: actions/checkout@v2.4.0
-        with:
-          repository: 'jimmypoulsen/jira-relay'
-          ref: 'v1.0.13'
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
