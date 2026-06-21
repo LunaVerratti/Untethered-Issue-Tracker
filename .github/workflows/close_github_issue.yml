@@ -12,6 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Dump payload
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log(JSON.stringify(context.payload, null, 2));
       - name: Close issues
         uses: actions/github-script@v7
         with:
@@ -21,6 +26,9 @@ jobs:
 
             const version = payload.version;
             const issues = payload.issues;
+
+            console.log(`Version ${version} released.`);
+            console.log(issues);
 
             for (const number of issues) {
 
