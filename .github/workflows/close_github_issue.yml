@@ -1,0 +1,42 @@
+name: Close GitHub Issues from Jira
+
+on:
+  repository_dispatch:
+    types: [jira-release]
+
+permissions:
+  issues: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Close issues
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const payload = context.payload.client_payload;
+
+            const version = payload.version;
+            const issues = payload.issues;
+
+            for (const number of issues) {
+
+              console.log(`Closing issue #${number}`);
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: number,
+                body: `✅ Fixed in **${version}**.`
+              });
+
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: number,
+                state: "closed"
+              });
+            }
