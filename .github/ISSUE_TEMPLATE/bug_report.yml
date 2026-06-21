@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this report!
+        Thanks for taking the time to fill out this report! Please try to make your title clear such that another user can easily search for it.
 
   - type: input
     id: game_version
@@ -48,11 +48,3 @@ body:
       description: Tell us what you expected the behaviour to be. Attach any screenshots, log files, and save files.
     validations:
       required: false
-
-  - type: checkboxes
-    id: checkboxes
-    attributes:
-      label: Confirmations
-      options:
-        - label: I have checked the open issues for duplicates.
-          required: true
