@@ -25,7 +25,10 @@ jobs:
             const payload = context.payload.client_payload;
 
             const version = payload.version;
-            const issues = payload.issues;
+            const issues = payload.issues
+              .split(',')
+              .filter(Boolean)
+              .map(s => parseInt(s, 10));
 
             console.log(`Version ${version} released.`);
             console.log(issues);
